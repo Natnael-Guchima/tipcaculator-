@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Button, CssBaseline } from "@mui/material";
+
+const customTheme = createTheme({
+  typography: {
+    fontFamily: "'Space Mono', 'Bellefair', 'Barlow Condensed', sans-serif",
+  },
+  palette: {
+    primary: {
+      main: "hsl(183, 100%, 15%)",
+    },
+    secondary: {
+      main: "hsl(172, 67%, 45%)",
+    },
+  },
+});
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <ThemeProvider theme={customTheme}>
+        <CssBaseline />
+        <Button variant="contained">Contained</Button>
+      </ThemeProvider>
+    </React.Fragment>
   );
-}
+};
 
 export default App;
